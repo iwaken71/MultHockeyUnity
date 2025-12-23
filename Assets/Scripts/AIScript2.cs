@@ -28,12 +28,12 @@ public class AIScript2 : MonoBehaviour {
 					foreach (GameObject ball in ball_list) {
 						distance = Abs (ball.transform.position.z - player.transform.position.z);
 						Rigidbody rb = ball.GetComponent<Rigidbody> ();
-						float v = rb.velocity.z;
+						float v = rb.linearVelocity.z;
 						float time = Abs(distance / v);
 						if (v > 0) {
 							if (time < min_time) {
 
-								float tmp = ball.transform.position.x + rb.velocity.x * time;
+								float tmp = ball.transform.position.x + rb.linearVelocity.x * time;
 
 								if ((-0.5f < tmp && tmp < 0.5f) || (9.5f < tmp && tmp < 10.5f)) { //壁に当たる
 
@@ -73,12 +73,12 @@ public class AIScript2 : MonoBehaviour {
 					foreach (GameObject ball in ball_list) {
 						distance = Abs (ball.transform.position.x - player.transform.position.x);
 						Rigidbody rb = ball.GetComponent<Rigidbody> ();
-						float v = rb.velocity.x;
+						float v = rb.linearVelocity.x;
 						float time = Abs(distance / v);
 						if ((v < 0 && script.player_mode == 3) || (v > 0 && script.player_mode == 4)) {
 							if (time < min_time) {
 
-								float tmp = ball.transform.position.z + rb.velocity.z * time;
+								float tmp = ball.transform.position.z + rb.linearVelocity.z * time;
 
 								if ((-0.5f < tmp && tmp < 0.5f) || (9.5f < tmp && tmp < 10.5f)) { //壁に当たる
 

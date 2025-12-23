@@ -1,10 +1,15 @@
 using System;
 using UnityEngine;
+#if !UNITY_SERVER
 using UnityEngine.EventSystems;
+#endif
 
 namespace UnityStandardAssets.CrossPlatformInput
 {
-	public class AxisTouchButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+	public class AxisTouchButton : MonoBehaviour
+#if !UNITY_SERVER
+		, IPointerDownHandler, IPointerUpHandler
+#endif
 	{
 		// designed to work in a pair with another axis touch button
 		// (typically with one having -1 and one having 1 axisValues)
@@ -56,6 +61,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
+#if !UNITY_SERVER
 		public void OnPointerDown(PointerEventData data)
 		{
 			if (m_PairedWith == null)
@@ -71,5 +77,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 		{
 			m_Axis.Update(Mathf.MoveTowards(m_Axis.GetValue, 0, responseSpeed * Time.deltaTime));
 		}
+#endif
 	}
 }

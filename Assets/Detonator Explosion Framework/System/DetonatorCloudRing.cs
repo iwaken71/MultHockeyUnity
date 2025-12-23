@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -88,13 +89,14 @@ public class DetonatorCloudRing : DetonatorComponent
 
     override public void Explode()
     {
-		if (on)
-		{
-			UpdateCloudRing();
-			_cloudRingEmitter.Explode();
-		}
+	if (on)
+	{
+		UpdateCloudRing();
+		_cloudRingEmitter.Explode();
+	}
     }
 
 }
+#endif
 
 

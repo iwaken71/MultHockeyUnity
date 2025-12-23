@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -106,13 +107,14 @@ public class DetonatorGlow : DetonatorComponent
 
     override public void Explode()
     {
-		if (detailThreshold > detail) return;
-		
-		if (on)
-		{
-			UpdateGlow();
-			_glowEmitter.Explode();
-		}
+	if (detailThreshold > detail) return;
+	
+	if (on)
+	{
+		UpdateGlow();
+		_glowEmitter.Explode();
+	}
     }
 
 }
+#endif

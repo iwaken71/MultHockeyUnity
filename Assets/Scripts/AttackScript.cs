@@ -22,7 +22,7 @@ public class AttackScript : MonoBehaviour {
 		Rigidbody ball_rb = ball.GetComponent<Rigidbody> ();
 		if (attackmode) {
 			Vector3 v = (ball.transform.position - transform.position).normalized;
-			ball_rb.velocity = v * 9.0f;
+			ball_rb.linearVelocity = v * 9.0f;
 		}
 	}
 	public void Touch(){

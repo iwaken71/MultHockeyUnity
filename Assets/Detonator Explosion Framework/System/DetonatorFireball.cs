@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -197,17 +198,18 @@ public class DetonatorFireball : DetonatorComponent
 
     override public void Explode()
     {
-		if (detailThreshold > detail) return;
-		
-		if (on)
-		{
-			UpdateFireballA();
-			UpdateFireballB();
-			UpdateFireShadow();
-			if (drawFireballA)	_fireballAEmitter.Explode();
-			if (drawFireballB) _fireballBEmitter.Explode();
-			if (drawFireShadow)	_fireShadowEmitter.Explode();
-		}
+	if (detailThreshold > detail) return;
+	
+	if (on)
+	{
+		UpdateFireballA();
+		UpdateFireballB();
+		UpdateFireShadow();
+		if (drawFireballA)	_fireballAEmitter.Explode();
+		if (drawFireballB) _fireballBEmitter.Explode();
+		if (drawFireShadow)	_fireShadowEmitter.Explode();
+	}
     }
 
 }
+#endif

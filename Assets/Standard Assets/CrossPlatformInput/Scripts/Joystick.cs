@@ -1,10 +1,15 @@
 using System;
 using UnityEngine;
+#if !UNITY_SERVER
 using UnityEngine.EventSystems;
+#endif
 
 namespace UnityStandardAssets.CrossPlatformInput
 {
-	public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+	public class Joystick : MonoBehaviour
+#if !UNITY_SERVER
+		, IPointerDownHandler, IPointerUpHandler, IDragHandler
+#endif
 	{
 		public enum AxisOption
 		{
@@ -71,6 +76,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
+#if !UNITY_SERVER
 		public void OnDrag(PointerEventData data)
 		{
 			Vector3 newPos = Vector3.zero;
@@ -101,6 +107,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 
 		public void OnPointerDown(PointerEventData data) { }
+#endif
 
 		void OnDisable()
 		{

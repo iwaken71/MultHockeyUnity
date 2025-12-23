@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -151,15 +152,16 @@ public class DetonatorSmoke : DetonatorComponent
 
     override public void Explode()
     {
-		if (detailThreshold > detail) return;
-		
-		if (on)
-		{
-			UpdateSmokeA();
-			UpdateSmokeB();
-			if (drawSmokeA) _smokeAEmitter.Explode();
-			if (drawSmokeB) _smokeBEmitter.Explode();
-		}
+	if (detailThreshold > detail) return;
+	
+	if (on)
+	{
+		UpdateSmokeA();
+		UpdateSmokeB();
+		if (drawSmokeA) _smokeAEmitter.Explode();
+		if (drawSmokeB) _smokeBEmitter.Explode();
+	}
     }
 
 }
+#endif

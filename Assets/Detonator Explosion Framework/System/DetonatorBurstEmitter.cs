@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -236,3 +237,4 @@ public class DetonatorBurstEmitter : DetonatorComponent
     }
 
 }
+#endif

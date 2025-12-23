@@ -83,11 +83,24 @@ public class DetonatorForce : DetonatorComponent
 						_tempFireObject = (Instantiate(fireObject, this.transform.position, this.transform.rotation)) as GameObject;
 						_tempFireObject.transform.parent = hit.transform;
 						_tempFireObject.transform.localPosition = new Vector3(0f,0f,0f);
-						if (_tempFireObject.GetComponent<ParticleEmitter>())
+						// Legacy ParticleEmitter は Unity 6 では利用できないため、ParticleSystem を優先して起動する
+						var ps = _tempFireObject.GetComponent<ParticleSystem>();
+						if (ps != null)
 						{
-							_tempFireObject.GetComponent<ParticleEmitter>().emit = true;
-							Destroy(_tempFireObject,fireObjectLife);
+							ps.Play(true);
+							Destroy(_tempFireObject, fireObjectLife);
 						}
+#if UNITY_LEGACY_PARTICLES
+						else
+						{
+							var pe = _tempFireObject.GetComponent<ParticleEmitter>();
+							if (pe != null)
+							{
+								pe.emit = true;
+								Destroy(_tempFireObject, fireObjectLife);
+							}
+						}
+#endif
 					}
 				}
 			}

@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -43,3 +44,4 @@ void FixedUpdate (){
 	}
 }
 }
+#endif

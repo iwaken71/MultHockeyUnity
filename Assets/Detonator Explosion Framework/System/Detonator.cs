@@ -72,11 +72,13 @@ public class Detonator : MonoBehaviour {
 		
     private Component[] components;
 
+#if UNITY_LEGACY_PARTICLES
 	private DetonatorFireball _fireball;
 	private DetonatorSparks _sparks;
 	private DetonatorShockwave _shockwave;
 	private DetonatorSmoke _smoke;
 	private DetonatorGlow _glow;
+#endif
 	private DetonatorLight _light;
 	private DetonatorForce _force;
 	private DetonatorHeatwave _heatwave;
@@ -96,6 +98,7 @@ public class Detonator : MonoBehaviour {
         components = this.GetComponents(typeof(DetonatorComponent));
 		foreach (DetonatorComponent dc in components)
 		{
+#if UNITY_LEGACY_PARTICLES
 			if (dc is DetonatorFireball)
 			{
 				_fireball = dc as DetonatorFireball;
@@ -116,6 +119,7 @@ public class Detonator : MonoBehaviour {
 			{
 				_glow = dc as DetonatorGlow;
 			}
+#endif
 			if (dc is DetonatorLight)
 			{
 				_light = dc as DetonatorLight;
@@ -130,6 +134,7 @@ public class Detonator : MonoBehaviour {
 			}
 		}
 		
+#if UNITY_LEGACY_PARTICLES
 		if (!_fireball && autoCreateFireball)
 		{
 			_fireball = gameObject.AddComponent<DetonatorFireball>() as DetonatorFireball;
@@ -159,6 +164,7 @@ public class Detonator : MonoBehaviour {
 			_glow = gameObject.AddComponent<DetonatorGlow>() as DetonatorGlow;
 			_glow.Reset();
 		}
+#endif
 		
 		if (!_light && autoCreateLight)
 		{

@@ -80,22 +80,22 @@ public class GameManager : MonoBehaviour {
 			case 0:
 				rotation = 270 + angle;
 				rotation = rotation * Mathf.PI / 180;
-				ball_rb.velocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
+				ball_rb.linearVelocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
 				break;
 			case 1:
 				rotation = 180 + angle;
 				rotation = rotation * Mathf.PI / 180;
-				ball_rb.velocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
+				ball_rb.linearVelocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
 				break;
 			case 2:
 				rotation = 0 + angle;
 				rotation = rotation * Mathf.PI / 180;
-				ball_rb.velocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
+				ball_rb.linearVelocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
 				break;
 			case 3:
 				rotation = 90 + angle;
 				rotation = rotation * Mathf.PI / 180;
-				ball_rb.velocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
+				ball_rb.linearVelocity = new Vector3 (Mathf.Cos (rotation), 0, Mathf.Sin (rotation)) * speed;
 				break;
 			
 			

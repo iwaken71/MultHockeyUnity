@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -79,11 +80,12 @@ public class DetonatorShockwave : DetonatorComponent
 
     override public void Explode()
     {
-		if (on)
-		{
-			UpdateShockwave();
-			_shockwaveEmitter.Explode();
-		}
+	if (on)
+	{
+		UpdateShockwave();
+		_shockwaveEmitter.Explode();
+	}
     }
 
 }
+#endif

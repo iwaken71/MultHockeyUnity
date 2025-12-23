@@ -1,12 +1,19 @@
 using System;
 using UnityEngine;
+#if !UNITY_SERVER
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+#endif
 
 namespace UnityStandardAssets.CrossPlatformInput
 {
+#if !UNITY_SERVER
 	[RequireComponent(typeof(Image))]
-	public class TouchPad : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+#endif
+	public class TouchPad : MonoBehaviour
+#if !UNITY_SERVER
+		, IPointerDownHandler, IPointerUpHandler
+#endif
 	{
 		// Options for which axes to use
 		public enum AxisOption
@@ -44,7 +51,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		Vector2 m_PreviousTouchPos; // swipe style control touch
 
 
-#if !UNITY_EDITOR
+#if !UNITY_SERVER && !UNITY_EDITOR
     private Vector3 m_Center;
     private Image m_Image;
 #else
@@ -58,7 +65,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void Start()
         {
-#if !UNITY_EDITOR
+#if !UNITY_SERVER && !UNITY_EDITOR
             m_Image = GetComponent<Image>();
             m_Center = m_Image.transform.position;
 #endif
@@ -98,6 +105,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
+#if !UNITY_SERVER
 		public void OnPointerDown(PointerEventData data)
 		{
 			m_Dragging = true;
@@ -107,6 +115,7 @@ namespace UnityStandardAssets.CrossPlatformInput
             m_Center = data.position;
 #endif
 		}
+#endif
 
 		void Update()
 		{
@@ -116,7 +125,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 			}
 			if (Input.touchCount >= m_Id + 1 && m_Id != -1)
 			{
-#if !UNITY_EDITOR
+#if !UNITY_SERVER && !UNITY_EDITOR
 
             if (controlStyle == ControlStyle.Swipe)
             {
@@ -137,12 +146,14 @@ namespace UnityStandardAssets.CrossPlatformInput
 		}
 
 
+#if !UNITY_SERVER
 		public void OnPointerUp(PointerEventData data)
 		{
 			m_Dragging = false;
 			m_Id = -1;
 			UpdateVirtualAxes(Vector3.zero);
 		}
+#endif
 
 		void OnDisable()
 		{

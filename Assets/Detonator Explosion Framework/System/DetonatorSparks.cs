@@ -1,3 +1,4 @@
+#if UNITY_LEGACY_PARTICLES
 using UnityEngine;
 using System.Collections;
 
@@ -93,11 +94,12 @@ public class DetonatorSparks : DetonatorComponent
 
     override public void Explode()
     {
-		if (on)
-		{
-			UpdateSparks();
-			_sparksEmitter.Explode();
-		}
+	if (on)
+	{
+		UpdateSparks();
+		_sparksEmitter.Explode();
+	}
     }
 
 }
+#endif
