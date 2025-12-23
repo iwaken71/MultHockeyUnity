@@ -14,7 +14,7 @@ namespace UnityStandardAssets.Utility
         // Use this for initialization
         private void OnEnable()
         {
-#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
+#if UNITY_IOS || UNITY_ANDROID
 			var renderers = FindObjectsOfType<Renderer>();
 			Debug.Log (renderers.Length+" renderers");
 			var oldMaterials = new List<Material>();
