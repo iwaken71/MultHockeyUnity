@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AIScript : MonoBehaviour {
 
 	public GameObject player;
 	PlayerController script;
-	ArrayList ball_list;
+	List<GameObject> ball_list;
 	float distination = 5;
 
 	// Use this for initialization
 	void Start () {
-		ball_list = new ArrayList();
+		ball_list = new List<GameObject>();
 		script = player.GetComponent<PlayerController> ();
 	}
 

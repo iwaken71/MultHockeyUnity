@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -107,9 +108,9 @@ public class GameManager : MonoBehaviour {
 
 	}
 	public void ReStart(){
-		Application.LoadLevel (Application.loadedLevelName);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 	}
 	public void ToStart(){
-		Application.LoadLevel ("Start");
+		SceneManager.LoadScene ("Start");
 	}
 }

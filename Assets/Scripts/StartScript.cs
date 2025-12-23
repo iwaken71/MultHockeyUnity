@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartScript : MonoBehaviour {
 	int status = 0;
@@ -30,19 +31,19 @@ public class StartScript : MonoBehaviour {
 	public void Push(int n){
 		if (status == 1) {
 			if (n == 1) {
-				Application.LoadLevel ("Easy_1");
+				SceneManager.LoadScene ("Easy_1");
 			} else if (n == 2) {
-				Application.LoadLevel ("Normal_1");
+				SceneManager.LoadScene ("Normal_1");
 			} else if (n == 3) {
-				Application.LoadLevel ("Hard_1");
+				SceneManager.LoadScene ("Hard_1");
 			}
 		} else if (status == 3) {
 			if (n == 1) {
-				Application.LoadLevel ("Easy_1_4");
+				SceneManager.LoadScene ("Easy_1_4");
 			} else if (n == 2) {
-				Application.LoadLevel ("Normal_1_4");
+				SceneManager.LoadScene ("Normal_1_4");
 			} else if (n == 3) {
-				Application.LoadLevel ("Hard_1_4");
+				SceneManager.LoadScene ("Hard_1_4");
 			}
 		}
 	}

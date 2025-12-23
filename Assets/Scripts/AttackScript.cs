@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AttackScript : MonoBehaviour {
 
@@ -25,7 +26,7 @@ public class AttackScript : MonoBehaviour {
 		}
 	}
 	public void Touch(){
-		if (Application.loadedLevelName != "Easy_1" && Application.loadedLevelName != "Easy_1_4") {
+		if (SceneManager.GetActiveScene().name != "Easy_1" && SceneManager.GetActiveScene().name != "Easy_1_4") {
 			player.SendMessage ("PushAttack");
 		}
 	}
